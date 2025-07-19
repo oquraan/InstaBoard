@@ -14,4 +14,4 @@ external API.
 
 
 ## Web Pages  : 
- Deploy the project to GitHub Pages [instaBords](https://flavor-table-api-98jd.onrender.com/ "").
+ Deploy the project to GitHub Pages [https://oquraan.github.io/InstaBoard/ "").
