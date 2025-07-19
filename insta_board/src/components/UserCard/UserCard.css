@@ -1,0 +1,203 @@
+.user-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.profile-image {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: #10b981;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-info {
+  text-align: center;
+  width: 100%;
+}
+
+.user-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.email-container {
+  min-height: 24px;
+  transition: all 0.3s ease;
+}
+
+.user-email {
+  font-size: 0.875rem;
+  color: #6b7280;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.user-email.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.btn-like {
+  position: relative;
+}
+
+.btn-like.liked {
+  transform: scale(1.1);
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.btn-toggle.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.btn-toggle.active:hover {
+  background: #2563eb;
+}
+
+.heart-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: all 0.2s ease;
+}
+
+.heart-icon.filled {
+  fill: #ef4444;
+  stroke: #ef4444;
+}
+
+.eye-icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.like-counter {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.like-counter.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.like-count {
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 0.2s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .user-card {
+    max-width: 100%;
+    /* margin: 0; */
+    margin: 20px auto;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
