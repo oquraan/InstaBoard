@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DarkModeContext } from "../../context/DarkModeContext";
 import "./UserCard.css";
 
 export default function UserCard({
-  style = { color: "black" },
+  // style = { color: "black" },
   img = "/imges/personal.png",
   name = "somone",
   email = "username@gmail.com",
 }) {
+  const darkModeContext = useContext(DarkModeContext);
+
   const [showEmail, setShowEmail] = useState(false);
   const [countLike, setCountLike] = useState(0);
-  const { color } = style;
+  // const { color } = style;
 
   // return (
   //   <div>
@@ -36,7 +39,7 @@ export default function UserCard({
   // );
 
   return (
-    <div className="user-card" style={style}>
+    <div className="user-card" style={darkModeContext}>
       <div className="card-content">
         <div className="profile-image-container">
           <img src={img} alt={name} className="profile-image" />
@@ -44,7 +47,7 @@ export default function UserCard({
         </div>
 
         <div className="user-info">
-          <h2 className="user-name" style={{ color }}>
+          <h2 className="user-name" style={darkModeContext}>
             {name}
           </h2>
           <div className="email-container">
