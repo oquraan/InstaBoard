@@ -1,11 +1,12 @@
 "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { DarkModeContext } from "../../context/DarkModeContext";
 import UserCard from "../UserCard/UserCard";
-
-export default function UserList({ style }) {
+export default function UserList() {
   const [listOfProfile, setListOfProfile] = useState([]);
   const [allProfile, setAllProfile] = useState(true);
+  const darkModeContext = useContext(DarkModeContext);
 
   const [firstName, setFirstNmae] = useState("");
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function UserList({ style }) {
     const listInSearch = listOfProfile.filter((user) =>
       user.name.first.includes(e.target.value)
     );
-    setListOfProfileSearch(listInSearch);
+    setListOfProfileSearch([...listInSearch]);
 
     // listOfProfileSearch = listInSearch.map((element) => {
     //   return (
@@ -119,7 +120,7 @@ export default function UserList({ style }) {
         (element, index) => {
           return (
             <UserCard
-              style={style}
+              style={darkModeContext}
               name={
                 element.name.title +
                 "." +
