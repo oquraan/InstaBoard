@@ -1,38 +1,31 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import UserList from "./components/UserList/UserList";
-import { DarkModeContext } from "./context/DarkModeContext";
-
+import { Footer, Navbar } from "./components/NavBar/NavBar";
+import Team from "./components/Team";
+import UserInfo from "./components/UserInfo";
+import AboutPage from "./pages/About";
+import HomePage from "./pages/Home";
+import Notfound from "./pages/NotFound";
 function App() {
-  const [isDark, setIsDark] = useState(false);
-
   return (
-    <DarkModeContext.Provider
-      value={isDark ? undefined : { color: "white", background: "#282c34" }}
-    >
-      <div className="App">
-        <header className={isDark ? "App-header" : "App-header1"}>
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              className="toggle-input"
-              checked={isDark}
-              onChange={(e) => setIsDark(e.target.checked)}
-            />
-            <span className="toggle-slider"></span>
-          </label>
-          <div className="display-profile ">
-            {" "}
-            <UserList
-              className="display-profile"
-              // style={
-              //   isDark ? undefined : { color: "white", background: "#282c34" }
-              // }
-            ></UserList>
-          </div>
-        </header>
-      </div>
-    </DarkModeContext.Provider>
+    <div  className="App">
+      {" "}
+      <BrowserRouter>
+        <Navbar></Navbar>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Team></Team>}></Route>
+
+            <Route path="/homePage" element={<HomePage></HomePage>}></Route>
+            <Route path="/about" element={<AboutPage></AboutPage>}></Route>
+            <Route path="/team/profile" element={<UserInfo></UserInfo>}></Route>
+
+            <Route path="*" element={<Notfound></Notfound>}></Route>
+          </Routes>
+        </div>
+        <Footer></Footer>
+      </BrowserRouter>
+    </div>
   );
 }
 

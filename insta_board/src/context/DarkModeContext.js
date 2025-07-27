@@ -1,6 +1,7 @@
 import { createContext } from "react";
 
-export  let DarkModeContext = createContext({
+export let DarkModeContext = createContext({
   color: "white",
   background: "#282c34",
+  isDark: false,
 });
